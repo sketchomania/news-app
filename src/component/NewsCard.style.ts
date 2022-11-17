@@ -1,22 +1,22 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  backgroundStyle: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white',
-  },
-  sectionContainer: {
+  container: {
     marginTop: 32,
     paddingHorizontal: 24,
+    borderWidth: 1,
+    borderColor: 'cyan',
   },
-  sectionTitle: {
+  cardImage: {
+    width: 450,
+    height: 200,
+  },
+  cardTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: 'black',
   },
-  sectionDescription: {
+  cardDescription: {
     marginTop: 8,
     fontSize: 16,
     // fontWeight: '400',

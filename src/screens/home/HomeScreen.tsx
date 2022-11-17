@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import moment from 'moment';
 import {services} from '../../api/services';
-import {FlatList, SafeAreaView, Text, View} from 'react-native';
+import {FlatList, Image, SafeAreaView, Text, View} from 'react-native';
 import styles from './HomeScreen.style';
+import NewsCard from '../../component/NewsCard';
 
 interface HomeScreenProps {}
 interface cardItem {
@@ -11,6 +12,7 @@ interface cardItem {
     publishedAt: Date;
     description: string;
     id: string;
+    urlToImage: string;
   };
 }
 
@@ -36,27 +38,17 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
 
   return (
     <SafeAreaView style={styles.backgroundStyle}>
-      <View style={styles.sectionContainer}>
-        <Text style={styles.sectionTitle}>{'🏠'}</Text>
-        <Text style={styles.sectionTitle}>{'HomeScreen'}</Text>
-        <Text style={styles.sectionDescription}>
-          {'Make changes accourding to need 🎉'}
-        </Text>
+      <View>
+        <>
+          <Text style={styles.sectionTitle}>{'🏠'}</Text>
+          <Text style={styles.sectionTitle}>{'HomeScreen'}</Text>
+          <Text style={styles.sectionDescription}>
+            {'Make changes accourding to need 🎉'}
+          </Text>
+        </>
         <FlatList
           data={newsData}
-          renderItem={({item}: cardItem) => (
-            <>
-              <View>
-                <View>
-                  <Text style={styles.sectionTitle}>{item.title}</Text>
-                  <Text>{moment(item.publishedAt).format('LLL')}</Text>
-                  <Text style={styles.sectionDescription}>
-                    {item.description}
-                  </Text>
-                </View>
-              </View>
-            </>
-          )}
+          renderItem={({item}: cardItem) => <NewsCard data={item} />}
           keyExtractor={item => item.id}
         />
       </View>
