@@ -9,6 +9,7 @@ import SearchScreen from '../screens/search/SearchScreen';
 import DetailScreen from '../screens/detail/DetailScreen';
 import NotificationScreen from '../screens/notification/NotificationScreen';
 import ProfileScreen from '../screens/profile/ProfileScreen';
+import {COLORS} from '../constants/color';
 
 const Tab = createBottomTabNavigator();
 
@@ -46,13 +47,13 @@ const Navigation = () => {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({route}) => ({
-          headerShown: false,
+          // headerShown: false,
           tabBarIcon: ({focused, color, size}) =>
             renderTabIcon(route, focused, color, size),
-          tabBarActiveTintColor: 'coral',
-          tabBarInactiveTintColor: 'gray',
+          tabBarActiveTintColor: COLORS.appColor,
+          tabBarInactiveTintColor: COLORS.gray,
           tabBarStyle: {
-            backgroundColor: 'white',
+            backgroundColor: COLORS.white,
           },
         })}>
         <Tab.Screen name={SCREENS.HOME} component={HomeScreen} />

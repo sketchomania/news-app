@@ -1,17 +1,12 @@
+import moment from 'moment';
 import React from 'react';
 import {Image, Text, View} from 'react-native';
 
 import styles from './NewsCard.style';
+import {NewsCardItem} from '../services/models';
 
 interface NewsCardProps {
-  data: NewsData;
-}
-interface NewsData {
-  id: string;
-  title: string;
-  publishedAt: string;
-  description: string;
-  urlToImage: string;
+  data: NewsCardItem;
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({data}) => {
@@ -35,7 +30,7 @@ const NewsCard: React.FC<NewsCardProps> = ({data}) => {
           source={{uri: urlToImage}}
         />
         <Text style={styles.cardTitle}>{title}</Text>
-        <Text>{publishedAt}</Text>
+        <Text>{moment(publishedAt).format('LLL')}</Text>
         <Text style={styles.cardDescription}>{description}</Text>
         <View></View>
       </View>

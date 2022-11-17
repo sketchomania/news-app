@@ -1,19 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import moment from 'moment';
 import {services} from '../../api/services';
-import {FlatList, Image, SafeAreaView, Text, View} from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  SafeAreaView,
+  Text,
+  View,
+} from 'react-native';
+
+import {NewsCardItem} from '../../services/models';
 import styles from './HomeScreen.style';
 import NewsCard from '../../component/NewsCard';
+import {COLORS} from '../../constants/color';
 
 interface HomeScreenProps {}
+
 interface cardItem {
-  item: {
-    title: string;
-    publishedAt: Date;
-    description: string;
-    id: string;
-    urlToImage: string;
-  };
+  item: NewsCardItem;
 }
 
 const HomeScreen: React.FC<HomeScreenProps> = () => {
@@ -39,18 +43,17 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
   return (
     <SafeAreaView style={styles.backgroundStyle}>
       <View>
-        <>
-          <Text style={styles.sectionTitle}>{'🏠'}</Text>
-          <Text style={styles.sectionTitle}>{'HomeScreen'}</Text>
-          <Text style={styles.sectionDescription}>
-            {'Make changes accourding to need 🎉'}
-          </Text>
-        </>
-        <FlatList
-          data={newsData}
-          renderItem={({item}: cardItem) => <NewsCard data={item} />}
-          keyExtractor={item => item.id}
-        />
+        {newsData.length > 1 ? (
+          <>
+            <FlatList
+              data={newsData}
+              renderItem={({item}: cardItem) => <NewsCard data={item} />}
+              keyExtractor={item => item.id}
+            />
+          </>
+        ) : (
+          <ActivityIndicator size={'large'} color={COLORS.appColor} />
+        )}
       </View>
     </SafeAreaView>
   );
