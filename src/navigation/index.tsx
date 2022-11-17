@@ -25,17 +25,17 @@ const Navigation = () => {
       case SCREENS.HOME:
         iconName = focused ? 'home' : 'home-outline';
         break;
-      case SCREENS.DETAIL:
-        iconName = focused ? 'information-circle' : 'information';
+      case SCREENS.BUSINESS:
+        iconName = focused ? 'business' : 'business-outline';
         break;
-      case SCREENS.NOTIFICATION:
-        iconName = focused ? 'notifications' : 'notifications-outline';
+      case SCREENS.TECH:
+        iconName = focused ? 'hardware-chip-sharp' : 'hardware-chip-outline';
         break;
       case SCREENS.SEARCH:
         iconName = focused ? 'search' : 'search-outline';
         break;
-      case SCREENS.PROFILE:
-        iconName = focused ? 'person' : 'person-outline';
+      case SCREENS.HEALTH:
+        iconName = focused ? 'fitness' : 'fitness-outline';
         break;
       default:
         iconName = focused ? 'home' : 'home-outline';
@@ -58,12 +58,9 @@ const Navigation = () => {
         })}>
         <Tab.Screen name={SCREENS.HOME} component={HomeScreen} />
         <Tab.Screen name={SCREENS.SEARCH} component={SearchScreen} />
-        <Tab.Screen name={SCREENS.DETAIL} component={DetailScreen} />
-        <Tab.Screen
-          name={SCREENS.NOTIFICATION}
-          component={NotificationScreen}
-        />
-        <Tab.Screen name={SCREENS.PROFILE} component={ProfileScreen} />
+        <Tab.Screen name={SCREENS.HEALTH} component={ProfileScreen} />
+        <Tab.Screen name={SCREENS.TECH} component={NotificationScreen} />
+        <Tab.Screen name={SCREENS.BUSINESS} component={DetailScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

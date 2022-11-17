@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import moment from 'moment';
 import {services} from '../../api/services';
 import {
   ActivityIndicator,
@@ -10,9 +9,9 @@ import {
 } from 'react-native';
 
 import {NewsCardItem} from '../../services/models';
-import styles from './HomeScreen.style';
 import NewsCard from '../../component/NewsCard';
 import {COLORS} from '../../constants/color';
+import styles from './HomeScreen.style';
 
 interface HomeScreenProps {}
 
