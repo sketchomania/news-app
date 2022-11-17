@@ -1,25 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import {services} from '../../api/services';
-import {
-  ActivityIndicator,
-  FlatList,
-  SafeAreaView,
-  Text,
-  View,
-} from 'react-native';
+import {FlatList, SafeAreaView, View} from 'react-native';
 
 import {NewsCardItem} from '../../services/models';
 import NewsCard from '../../component/NewsCard';
-import {COLORS} from '../../constants/color';
-import styles from './DetailScreen.style';
+import styles from './BusinessScreen.style';
+import Spinner from '../../component/Spinner';
 
-interface DetailScreenProps {}
+interface BusinessScreenProps {}
 
 interface cardItem {
   item: NewsCardItem;
 }
 
-const DetailScreen: React.FC<DetailScreenProps> = () => {
+const BusinessScreen: React.FC<BusinessScreenProps> = () => {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
@@ -48,14 +42,15 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
               data={newsData}
               renderItem={({item}: cardItem) => <NewsCard data={item} />}
               keyExtractor={item => item.id}
+              ListFooterComponent={<Spinner />}
             />
           </>
         ) : (
-          <ActivityIndicator size={'large'} color={COLORS.appColor} />
+          <Spinner />
         )}
       </View>
     </SafeAreaView>
   );
 };
 
-export default DetailScreen;
+export default BusinessScreen;

@@ -6,9 +6,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {SCREENS} from '../constants/screens';
 import HomeScreen from '../screens/home/HomeScreen';
 import SearchScreen from '../screens/search/SearchScreen';
-import DetailScreen from '../screens/detail/DetailScreen';
 import NotificationScreen from '../screens/notification/NotificationScreen';
 import ProfileScreen from '../screens/profile/ProfileScreen';
+import BusinessScreen from '../screens/detail/BusinessScreen';
 import {COLORS} from '../constants/color';
 
 const Tab = createBottomTabNavigator();
@@ -60,7 +60,7 @@ const Navigation = () => {
         <Tab.Screen name={SCREENS.SEARCH} component={SearchScreen} />
         <Tab.Screen name={SCREENS.HEALTH} component={ProfileScreen} />
         <Tab.Screen name={SCREENS.TECH} component={NotificationScreen} />
-        <Tab.Screen name={SCREENS.BUSINESS} component={DetailScreen} />
+        <Tab.Screen name={SCREENS.BUSINESS} component={BusinessScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
