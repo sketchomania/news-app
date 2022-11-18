@@ -2,24 +2,39 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   backgroundStyle: {
-    flex: 1,
+    // flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'white',
+    // paddingTop: 140,
   },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  categoryContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    // borderWidth: 1,
+    // borderColor: 'cyan',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: 'black',
+  category: {
+    shadowColor: 'black',
+    elevation: 10,
+    backgroundColor : 'white',
+    borderRadius: 10,
+
+    alignItems: 'center',
+    justifyContent: 'center',
+    // padding: 10,
+    marginHorizontal: 20,
+    marginVertical: 10,
+    width: 150,
+    height: 130,
   },
-  sectionDescription: {
-    marginTop: 8,
+  categoryImage: {
+    width: 80,
+    height: 80,
+  },
+  categoryText: {
     fontSize: 16,
-    fontWeight: '400',
+    fontWeight: '600',
     color: 'black',
   },
 });

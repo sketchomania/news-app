@@ -66,7 +66,7 @@ const NewsCard: React.FC<NewsCardProps> = ({data}) => {
             <Ionicons
               name={'bookmark-outline'}
               size={24}
-              color={COLORS.lightyellow}
+              color={COLORS.goldenrod}
             />
           </View>
         )}

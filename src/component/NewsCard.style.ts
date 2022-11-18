@@ -64,11 +64,10 @@ const styles = StyleSheet.create({
     // fontSize: 14,
   },
   cardDescription: {
-    // backgroundColor: 'rgba(0,0,0,0.5)',
     // marginTop: 8,
     fontSize: 16,
-    // fontWeight: '400',
     color: 'black',
+    // fontWeight: '400',
   },
 });
 
