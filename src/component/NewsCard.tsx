@@ -24,15 +24,22 @@ const NewsCard: React.FC<NewsCardProps> = ({data}) => {
   return (
     <>
       <View style={styles.container}>
-        <Image
-          resizeMode="cover"
-          style={styles.cardImage}
-          source={{uri: urlToImage}}
-        />
-        <Text style={styles.cardTitle}>{title}</Text>
-        <Text>{moment(publishedAt).format('LLL')}</Text>
-        <Text style={styles.cardDescription}>{description}</Text>
-        <View></View>
+        <View>
+          <Image
+            resizeMode="cover"
+            style={styles.cardImage}
+            source={{uri: urlToImage}}
+          />
+          <View style={styles.imageOverlay}>
+            <Text style={{color: 'white'}}>{"Icons"}</Text>
+          </View>
+        </View>
+        <View style={styles.cardTextContainer}>
+        {/* <View style={styles.imageOverlay}> */}
+          <Text style={styles.cardTitle}>{title}</Text>
+          <Text>{moment(publishedAt).format('LLL')}</Text>
+          <Text style={styles.cardDescription}>{description}</Text>
+        </View>
       </View>
     </>
   );
