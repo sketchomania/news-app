@@ -28,25 +28,40 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
   },
   imageOverlay: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     position: 'absolute',
     width: 360,
-    // alignItems: 'center',
-    justifyContent: 'center',
-    height: 40,
     bottom: 0,
-    // padding: 5,
+    padding: 5,
+    paddingHorizontal: 10,
     backgroundColor: 'rgba(0,0,0,0.5)',
     // borderBottomLeftRadius: 10,
     // borderBottomRightRadius: 10,
   },
+  iconContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 6,
+    width: 80,
+  },
   cardTextContainer: {
     paddingHorizontal: 8,
     paddingBottom: 8,
+    paddingTop: 8,
   },
   cardTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: 'black',
+  },
+  cardDate: {
+    marginVertical: 1,
+    // fontSize: 14,
   },
   cardDescription: {
     // backgroundColor: 'rgba(0,0,0,0.5)',
@@ -58,3 +73,4 @@ const styles = StyleSheet.create({
 });
 
 export default styles;
+//  arrow-up-bold-outline
