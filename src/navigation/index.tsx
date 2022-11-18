@@ -6,7 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {SCREENS} from '../constants/screens';
 import HomeScreen from '../screens/home/HomeScreen';
 import SearchScreen from '../screens/search/SearchScreen';
-import NotificationScreen from '../screens/notification/NotificationScreen';
+import TechScreen from '../screens/tech/TechScreen';
 import HealthScreen from '../screens/health/HealthScreen';
 import BusinessScreen from '../screens/business/BusinessScreen';
 import {COLORS} from '../constants/color';
@@ -59,7 +59,7 @@ const Navigation = () => {
         <Tab.Screen name={SCREENS.HOME} component={HomeScreen} />
         <Tab.Screen name={SCREENS.SEARCH} component={SearchScreen} />
         <Tab.Screen name={SCREENS.HEALTH} component={HealthScreen} />
-        <Tab.Screen name={SCREENS.TECH} component={NotificationScreen} />
+        <Tab.Screen name={SCREENS.TECH} component={TechScreen} />
         <Tab.Screen name={SCREENS.BUSINESS} component={BusinessScreen} />
       </Tab.Navigator>
     </NavigationContainer>

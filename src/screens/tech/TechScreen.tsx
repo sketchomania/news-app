@@ -4,31 +4,31 @@ import {FlatList, SafeAreaView, View} from 'react-native';
 
 import {NewsCardItem} from '../../services/models';
 import NewsCard from '../../component/NewsCard';
-import styles from './BusinessScreen.style';
+import styles from './TechScreen.style';
 import Spinner from '../../component/Spinner';
 
-interface BusinessScreenProps {}
+interface TechScreenProps {}
 
 interface cardItem {
   item: NewsCardItem;
 }
 
-const BusinessScreen: React.FC<BusinessScreenProps> = () => {
+const TechScreen: React.FC<TechScreenProps> = () => {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
-    services('business')
+    services('technology')
       .then(data => {
         setNewsData(data);
         // console.log('data: ', data);
       })
       .catch(error => {
-        console.log('error: ', error);
+        console.log('TechScreen error: ', error);
       });
-    console.log('business useEffect: ');
+    console.log('TechScreen useEffect: ');
 
     return () => {
-      console.log('business Cleanup');
+      console.log('TechScreen Cleanup');
       setNewsData([]);
     };
   }, []);
@@ -53,4 +53,4 @@ const BusinessScreen: React.FC<BusinessScreenProps> = () => {
   );
 };
 
-export default BusinessScreen;
+export default TechScreen;

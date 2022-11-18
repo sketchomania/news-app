@@ -41,7 +41,7 @@ const HealthScreen: React.FC<HealthScreenProps> = () => {
             <FlatList
               data={newsData}
               renderItem={({item}: cardItem) => <NewsCard data={item} />}
-              keyExtractor={item => item.id}
+              keyExtractor={item => item.title}
               ListFooterComponent={<Spinner />}
             />
           </>
