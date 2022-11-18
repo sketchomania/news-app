@@ -4,31 +4,31 @@ import {FlatList, SafeAreaView, View} from 'react-native';
 
 import {NewsCardItem} from '../../services/models';
 import NewsCard from '../../component/NewsCard';
-import styles from './HomeScreen.style';
+import styles from './HealthScreen.style';
 import Spinner from '../../component/Spinner';
 
-interface HomeScreenProps {}
+interface HealthScreenProps {}
 
 interface cardItem {
   item: NewsCardItem;
 }
 
-const HomeScreen: React.FC<HomeScreenProps> = () => {
+const HealthScreen: React.FC<HealthScreenProps> = () => {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
-    services('general')
+    services('health')
       .then(data => {
         setNewsData(data);
         // console.log('data: ', data);
       })
       .catch(error => {
-        console.log('HomeScreen error: ', error);
+        console.log('HealthScreen error: ', error);
       });
-    console.log('homeScreen useEffect: ');
+    // console.log('HealthScreen useEffect: ');
 
     return () => {
-      console.log('homeScreen Cleanup');
+      // console.log('HealthScreen Cleanup');
       setNewsData([]);
     };
   }, []);
@@ -41,7 +41,7 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
             <FlatList
               data={newsData}
               renderItem={({item}: cardItem) => <NewsCard data={item} />}
-              keyExtractor={item => item.title}
+              keyExtractor={item => item.id}
               ListFooterComponent={<Spinner />}
             />
           </>
@@ -53,4 +53,5 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
   );
 };
 
-export default HomeScreen;
+export default HealthScreen;
+

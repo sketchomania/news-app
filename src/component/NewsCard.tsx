@@ -17,7 +17,7 @@ const NewsCard: React.FC<NewsCardProps> = ({data}) => {
   const [downVote, setDownVote] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const {id, title, publishedAt, description, urlToImage} = data;
+  const {title, publishedAt, description, urlToImage} = data;
 
   const Up = () => {
     return (
@@ -63,7 +63,11 @@ const NewsCard: React.FC<NewsCardProps> = ({data}) => {
           </View>
         ) : (
           <View>
-            <Ionicons name={'bookmark-outline'} size={24} color={COLORS.lightyellow} />
+            <Ionicons
+              name={'bookmark-outline'}
+              size={24}
+              color={COLORS.lightyellow}
+            />
           </View>
         )}
       </Pressable>

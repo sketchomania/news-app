@@ -1,5 +1,6 @@
 export const COLORS = {
-  appColor: 'coral',
+  appColor: 'goldenrod',
+  // appColor: 'coral',
   white: 'white',
   black: 'black',
   gray: 'gray',
