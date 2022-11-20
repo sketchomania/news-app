@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {services} from '../../api/services';
+import {categoryService} from '../../api/services';
 import {FlatList, SafeAreaView, View} from 'react-native';
 
 import {NewsCardItem} from '../../services/models';
@@ -17,7 +17,7 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
-    services('general')
+    categoryService('general')
       .then(data => {
         setNewsData(data);
         // console.log('data: ', data);

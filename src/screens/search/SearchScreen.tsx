@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {services} from '../../api/services';
+import {categoryService} from '../../api/services';
 import {
   FlatList,
   Image,
@@ -26,7 +26,7 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
   const [searchCategory, setsearchCategory] = useState('business');
 
   useEffect(() => {
-    services(`${searchCategory}`)
+    categoryService(`${searchCategory}`)
       .then(data => {
         setNewsData(data);
         // console.log('data: ', data);
