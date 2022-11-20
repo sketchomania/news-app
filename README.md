@@ -4,4 +4,5 @@
 
 - React Native Typescript Template
 - Tab Navigation installed
-- 5 Tab Screen
+- Tab Screen
+- get different categories of news

@@ -25,7 +25,6 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
   const [newsData, setNewsData] = useState([]);
   const [searchCategory, setsearchCategory] = useState('business');
 
-
   useEffect(() => {
     services(`${searchCategory}`)
       .then(data => {
@@ -114,20 +113,6 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
             {newsData.map(item => (
               <NewsCard key={item.title} data={item} />
             ))}
-
-            {/* {newsData.length > 1 ? (
-              <>
-                <FlatList
-                  data={newsData}
-                  renderItem={({item}: cardItem) => <NewsCard data={item} />}
-                  keyExtractor={item => item.title}
-                  ListFooterComponent={<Spinner />}
-                  // ListHeaderComponent={Categories}
-                />
-              </>
-            ) : (
-              <Spinner />
-            )} */}
           </View>
           {newsData.length > 1 ? <Spinner /> : null}
         </ScrollView>
