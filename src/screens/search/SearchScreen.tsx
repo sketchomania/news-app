@@ -25,7 +25,6 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [inputTerm, setInputTerm] = useState('');
   const [newsData, setNewsData] = useState([]);
-  // const [searchCategory, setSearchCategory] = useState('business');
 
   const searchInputTerm = () => {
     if (inputTerm === '') return;
@@ -44,7 +43,7 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
 
   const searchByCategory = (searchCategory: string) => {
     setIsLoading(true);
-    console.log('searchCategory: ', searchByCategory);
+    console.log('searchCategory: ', searchCategory, newsData.length);
     categoryService(`${searchCategory}`)
       .then(data => {
         setNewsData(data);
@@ -57,26 +56,14 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
   };
 
   useEffect(() => {
-    // categoryService(`${searchCategory}`)
-    //   .then(data => {
-    //     setNewsData(data);
-    //     // console.log('data: ', data);
-    //   })
-    //   .catch(error => {
-    //     console.log('SearchScreen error: ', error);
-    //   });
-
-    console.log('SearchScreen useEffect: ');
+    console.log('SearchScreen useEffect: ', newsData.length);
 
     return () => {
-      console.log('SearchScreen Cleanup');
+      console.log('SearchScreen Cleanup', newsData.length);
       setNewsData([]);
       setInputTerm('');
-
-      // setSearchCategory('');
     };
   }, []);
-  // searchInputTerm, searchByCategory
 
   const Categories = () => {
     return (
@@ -84,7 +71,6 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
         <View style={styles.categoryContainer}>
           <Pressable
             onPress={() => {
-              // setSearchCategory('entertainment');
               searchByCategory('entertainment');
             }}>
             <View style={styles.category}>
@@ -98,7 +84,6 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
           </Pressable>
           <Pressable
             onPress={() => {
-              // setSearchCategory('science');
               searchByCategory('science');
             }}>
             <View style={styles.category}>
@@ -124,7 +109,6 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
           </Pressable>
           <Pressable
             onPress={() => {
-              // setSearchCategory('sports');
               searchByCategory('sports');
             }}>
             <View style={styles.category}>
@@ -151,21 +135,19 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
             searchInputTerm={searchInputTerm}
           />
           <Categories />
-          <Categories />
-          <Categories />
           <View>
             {isLoading ? (
               <Spinner />
             ) : (
               <>
-              {/* now flatlist can also be used */}
-                {newsData.map(item => (
-                  <NewsCard key={item.title} data={item} />
+                {/* <Text>{newsData.length}</Text> */}
+                {newsData.map((item, index) => (
+                  <NewsCard key={index} data={item} />
                 ))}
               </>
             )}
           </View>
-          {/* {newsData.length > 1 ? <Spinner /> : null} */}
+          {newsData.length > 1 ? <Spinner /> : null}
         </ScrollView>
       </SafeAreaView>
     </>
