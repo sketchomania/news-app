@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'white',
+    flex: 1,
   },
   categoryContainer: {
     display: 'flex',

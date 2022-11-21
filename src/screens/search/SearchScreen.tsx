@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {categoryService} from '../../api/services';
+import {categoryService, searchService} from '../../api/services';
 import {
-  FlatList,
   Image,
   Pressable,
   SafeAreaView,
@@ -14,6 +13,7 @@ import {NewsCardItem} from '../../services/models';
 import NewsCard from '../../component/NewsCard';
 import styles from './SearchScreen.style';
 import Spinner from '../../component/Spinner';
+import SearchBar from './component/SearchBar';
 
 interface SearchScreenProps {}
 
@@ -22,26 +22,61 @@ interface cardItem {
 }
 
 const SearchScreen: React.FC<SearchScreenProps> = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [inputTerm, setInputTerm] = useState('');
   const [newsData, setNewsData] = useState([]);
-  const [searchCategory, setsearchCategory] = useState('business');
+  // const [searchCategory, setSearchCategory] = useState('business');
 
-  useEffect(() => {
-    categoryService(`${searchCategory}`)
+  const searchInputTerm = () => {
+    if (inputTerm === '') return;
+    setIsLoading(true);
+    console.log('inputTerm: ', inputTerm);
+    searchService(`${inputTerm}`)
       .then(data => {
         setNewsData(data);
+        setIsLoading(false);
         // console.log('data: ', data);
       })
       .catch(error => {
-        console.log('SearchScreen error: ', error);
+        console.log('SearchTerm error: ', error);
       });
+  };
+
+  const searchByCategory = (searchCategory: string) => {
+    setIsLoading(true);
+    console.log('searchCategory: ', searchByCategory);
+    categoryService(`${searchCategory}`)
+      .then(data => {
+        setNewsData(data);
+        setIsLoading(false);
+        // console.log('data: ', data);
+      })
+      .catch(error => {
+        console.log('SearchCategory error: ', error);
+      });
+  };
+
+  useEffect(() => {
+    // categoryService(`${searchCategory}`)
+    //   .then(data => {
+    //     setNewsData(data);
+    //     // console.log('data: ', data);
+    //   })
+    //   .catch(error => {
+    //     console.log('SearchScreen error: ', error);
+    //   });
+
     console.log('SearchScreen useEffect: ');
 
     return () => {
       console.log('SearchScreen Cleanup');
       setNewsData([]);
-      // setsearchCategory('');
+      setInputTerm('');
+
+      // setSearchCategory('');
     };
-  }, [searchCategory]);
+  }, []);
+  // searchInputTerm, searchByCategory
 
   const Categories = () => {
     return (
@@ -49,7 +84,8 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
         <View style={styles.categoryContainer}>
           <Pressable
             onPress={() => {
-              setsearchCategory('entertainment');
+              // setSearchCategory('entertainment');
+              searchByCategory('entertainment');
             }}>
             <View style={styles.category}>
               <Image
@@ -62,7 +98,8 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
           </Pressable>
           <Pressable
             onPress={() => {
-              setsearchCategory('science');
+              // setSearchCategory('science');
+              searchByCategory('science');
             }}>
             <View style={styles.category}>
               <Image
@@ -87,7 +124,8 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
           </Pressable>
           <Pressable
             onPress={() => {
-              setsearchCategory('sports');
+              // setSearchCategory('sports');
+              searchByCategory('sports');
             }}>
             <View style={styles.category}>
               <Image
@@ -107,14 +145,27 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
     <>
       <SafeAreaView style={styles.backgroundStyle}>
         <ScrollView>
+          <SearchBar
+            inputTerm={inputTerm}
+            setInputTerm={setInputTerm}
+            searchInputTerm={searchInputTerm}
+          />
+          <Categories />
+          <Categories />
           <Categories />
           <View>
-            <Text></Text>
-            {newsData.map(item => (
-              <NewsCard key={item.title} data={item} />
-            ))}
+            {isLoading ? (
+              <Spinner />
+            ) : (
+              <>
+              {/* now flatlist can also be used */}
+                {newsData.map(item => (
+                  <NewsCard key={item.title} data={item} />
+                ))}
+              </>
+            )}
           </View>
-          {newsData.length > 1 ? <Spinner /> : null}
+          {/* {newsData.length > 1 ? <Spinner /> : null} */}
         </ScrollView>
       </SafeAreaView>
     </>
