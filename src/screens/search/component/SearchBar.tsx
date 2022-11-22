@@ -2,7 +2,7 @@ import {View, TextInput, StyleSheet} from 'react-native';
 // import { Feather } from "@expo/vector-icons";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 //
-const SearchBar = ({inputTerm, setInputTerm, searchInputTerm}) => {
+const SearchBar = ({inputTerm, setInputTerm, searchInputTerm}: any) => {
   return (
     <View style={styles.backgroundStyle}>
       {/* <Feather name="search" style={styles.iconStyle} /> */}

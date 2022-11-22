@@ -48,6 +48,7 @@ const Navigation = () => {
       <Tab.Navigator
         screenOptions={({route}) => ({
           // headerShown: false,
+          tabBarHideOnKeyboard: true,
           tabBarIcon: ({focused, color, size}) =>
             renderTabIcon(route, focused, color, size),
           tabBarActiveTintColor: COLORS.appColor,

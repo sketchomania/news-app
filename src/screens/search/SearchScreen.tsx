@@ -43,6 +43,7 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
 
   const searchByCategory = (searchCategory: string) => {
     setIsLoading(true);
+    setInputTerm('');
     console.log('searchCategory: ', searchCategory, newsData.length);
     categoryService(`${searchCategory}`)
       .then(data => {
@@ -141,13 +142,14 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
             ) : (
               <>
                 {/* <Text>{newsData.length}</Text> */}
-                {newsData.map((item, index) => (
-                  <NewsCard key={index} data={item} />
-                ))}
+                {newsData.map(
+                  (item, index) =>
+                    index < 25 && <NewsCard key={index} data={item} />,
+                )}
               </>
             )}
           </View>
-          {newsData.length > 1 ? <Spinner /> : null}
+          {/* {newsData.length > 1 ? <Spinner /> : null} */}
         </ScrollView>
       </SafeAreaView>
     </>
