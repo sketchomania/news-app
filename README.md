@@ -7,6 +7,14 @@ Made with React Native and Typescript.
 
 - React Native Typescript Template
 - Tab Navigation installed
-- Tab Screen
-- get different categories of news
-- search any type of topic, get related results
+- Tab Screens
+- See treding news categories
+- Search news by categories and topic
+- Search news by input term
+
+## ⭐ Contribute
+
+- make "searchByCategory" of searchScreen global and use it in every screen.
+- You can add useThemes()
+- Splash Screen can added
+- Dark mode can be added

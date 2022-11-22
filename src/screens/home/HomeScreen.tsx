@@ -25,7 +25,7 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
       .catch(error => {
         console.log('HomeScreen error: ', error);
       });
-    console.log('homeScreen useEffect: ');
+    // console.log('homeScreen useEffect: ');
 
     return () => {
       console.log('homeScreen Cleanup');

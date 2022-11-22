@@ -28,7 +28,7 @@ const HealthScreen: React.FC<HealthScreenProps> = () => {
     // console.log('HealthScreen useEffect: ');
 
     return () => {
-      // console.log('HealthScreen Cleanup');
+      console.log('HealthScreen Cleanup');
       setNewsData([]);
     };
   }, []);

@@ -29,7 +29,7 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
   const searchInputTerm = () => {
     if (inputTerm === '') return;
     setIsLoading(true);
-    console.log('inputTerm: ', inputTerm);
+    // console.log('inputTerm: ', inputTerm);
     searchService(`${inputTerm}`)
       .then(data => {
         setNewsData(data);
@@ -44,7 +44,7 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
   const searchByCategory = (searchCategory: string) => {
     setIsLoading(true);
     setInputTerm('');
-    console.log('searchCategory: ', searchCategory, newsData.length);
+    // console.log('searchCategory: ', searchCategory, newsData.length);
     categoryService(`${searchCategory}`)
       .then(data => {
         setNewsData(data);
@@ -57,7 +57,7 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
   };
 
   useEffect(() => {
-    console.log('SearchScreen useEffect: ', newsData.length);
+    // console.log('SearchScreen useEffect: ', newsData.length);
 
     return () => {
       console.log('SearchScreen Cleanup', newsData.length);
@@ -144,12 +144,12 @@ const SearchScreen: React.FC<SearchScreenProps> = () => {
                 {/* <Text>{newsData.length}</Text> */}
                 {newsData.map(
                   (item, index) =>
+                    // show only 24 serach result out of 100 
                     index < 25 && <NewsCard key={index} data={item} />,
                 )}
               </>
             )}
           </View>
-          {/* {newsData.length > 1 ? <Spinner /> : null} */}
         </ScrollView>
       </SafeAreaView>
     </>

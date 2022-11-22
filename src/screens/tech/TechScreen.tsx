@@ -25,7 +25,7 @@ const TechScreen: React.FC<TechScreenProps> = () => {
       .catch(error => {
         console.log('TechScreen error: ', error);
       });
-    console.log('TechScreen useEffect: ');
+    // console.log('TechScreen useEffect: ');
 
     return () => {
       console.log('TechScreen Cleanup');

@@ -25,7 +25,7 @@ const BusinessScreen: React.FC<BusinessScreenProps> = () => {
       .catch(error => {
         console.log('error: ', error);
       });
-    console.log('business useEffect: ');
+    // console.log('business useEffect: ');
 
     return () => {
       console.log('business Cleanup');
