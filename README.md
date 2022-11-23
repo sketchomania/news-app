@@ -1,6 +1,6 @@
 # News App
 
-A news app to show and serch news of different categories.
+A news app to show and search news of different categories.
 Made with [React Native](https://reactnative.dev/), [Typescript](https://www.typescriptlang.org/) and [News Api](https://newsapi.org/).
 
 [](https://giphy.com/gifs/demo-mobile-app-react-native-rmLFc0t1T2Vnfr1A1Z)
