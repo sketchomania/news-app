@@ -75,7 +75,7 @@ const NewsCard: React.FC<NewsCardProps> = ({data}) => {
   };
 
   if (!(urlToImage && description && title)) {
-    return;
+    return null;
   }
   return (
     <>
