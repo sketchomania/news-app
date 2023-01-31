@@ -44,6 +44,14 @@ npm install
 # Or use `yarn`
 yarn install
 ```
+Add config file at src/config/config.ts and paste the following
+```ts
+export const CONFIG = {
+  API_KEY: 'your_api_key',
+  ENDPOINT: 'https://newsapi.org/v2/',
+  COUNTRY: 'your_country',
+};
+```
 
 Run project
 
